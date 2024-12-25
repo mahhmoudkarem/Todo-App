@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #936;
+}
+
+body {
+    font-family: "Merriweather", serif;
+    background: var(--main-color);
+}
+
+#add {
+    cursor: pointer;
+    background-color: var(--main-color) !important;
+    color: white !important;
+    padding: 10px 35px !important;
+}
+
+
+
+input:focus {
+    box-shadow: 0 0 0 5px rgba(153, 51, 102, 0.6) !important;
+    border: none !important;
+}
+
+.task-container .task-name {
+    cursor: pointer;
+}
+
+.task-name::after {
+    position: absolute;
+    content: "Click to Complete";
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 8px;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    text-wrap: nowrap;
+}
+.task-name:hover::after {
+    opacity: 1;
+}
+
+.task-container .icon {
+    cursor: pointer;
+    color: white;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+    border-width: 3px 2px 3px 2px;
+    border-style: solid dotted solid dotted;
+    border-color: #936 rgba(255, 255, 255,0.3) #fff rgba(151, 107, 93, 0.3);
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: 1s rotate linear infinite;
+ }
+ .loader:before , .loader:after{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 10px solid transparent;
+    border-bottom-color:#fff;
+    transform: translate(-10px, 19px) rotate(-35deg);
+  }
+ .loader:after {
+    border-color: #936 #0000 #0000 #0000 ;
+    transform: translate(32px, 3px) rotate(-35deg);
+  }
+   @keyframes rotate {
+    100%{    transform: rotate(360deg)}
+  }
+
+  .loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 111;
+  }
+
+.status-number{
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    background-color: #936;
+    color: white;
+}
+
+#progressBar-todo{
+    height: 10px;
+    width: 100%;
+    background-color: rgba(153, 51, 102, 0.555);
+    overflow: hidden;
+}
+
+#progress-todo{
+    height: inherit;
+    background-color: rgb(148, 19, 84);
+    top: 0;
+    left: 0;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
